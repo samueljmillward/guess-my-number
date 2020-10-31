@@ -24,12 +24,9 @@ const changeWidth = function(width) {
     document.querySelector('.number').style.width = width;
 };
 
-const guessValue = function(value) {
-    document.querySelector('.guess').value = value;
-};
-
 document.querySelector('.check').addEventListener('click', function() {
-    const guess = Number(guessValue(value));
+    const guess = Number(document.querySelector('.guess').value);
+    console.log(guess, typeof guess)
 
     if(!guess) {
         displayMessage('⚠ Number required.');
@@ -58,7 +55,7 @@ document.querySelector('.check').addEventListener('click', function() {
 });
 
 document.querySelector('.again').addEventListener('click', function() {
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
+    secretNumber = Math.trunc(Math.random() * 20) + 1
     score = 20;
 
     changeScore(score);
@@ -66,6 +63,6 @@ document.querySelector('.again').addEventListener('click', function() {
     changeBackground('#222');
 
     displayMessage('Start guessing...');
-    guessValue('');
+    document.querySelector('.guess').value = '';
     changeWidth('15rem');
 })
